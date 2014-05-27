@@ -8,7 +8,7 @@ application up and running.
 
 ## Ruby version
 
-`2.0.0-p481`. Because of drone.io.
+`2.1.2`
 
 ## System dependencies
 
