@@ -10,7 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'slim-rails'
 
-group :production do
+group :production, :staging do
   gem 'pg'
   gem 'rails_12factor'
 end
