@@ -14,3 +14,8 @@ gem 'jbuilder', '~> 2.0'
 group :development do
   gem 'spring'
 end
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
