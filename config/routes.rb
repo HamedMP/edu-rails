@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :posts
+  namespace :admin do
+    resources :posts, :categories
+    root to: 'posts#index'
+  end
 
-  resources :categories
+  resources :posts, only: [:index, :show]
+
+  resources :categories, only: [:show]
 
   root 'posts#index'
 end
