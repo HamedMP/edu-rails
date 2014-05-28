@@ -8,9 +8,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'slim-rails'
+gem 'pg'
 
 group :production, :staging do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
