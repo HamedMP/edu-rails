@@ -2,7 +2,7 @@
   <div class="main-col">
     <div class="breadcrumb clearfix">
       <%= link_to 'Home', root_path %>
-    <%- @post.ancestors.each do |category| %>
+    <%- @post.category.tree.each do |category| %>
       <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
       <%= link_to category.title, category, class: "#{'current-page' if category == @post.category}" %>
     <%- end %>

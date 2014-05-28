@@ -10,6 +10,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @related = Post.order("RANDOM()").limit(2)
+    @random_categories = Category.order("RANDOM()").limit(5)
   end
 
   # GET /categories/new
