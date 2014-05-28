@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'slim-rails'
 gem 'pg'
 gem 'kaminari'
+gem 'bootstrap-sass', '~> 3.1.1'
 
 group :production, :staging do
   gem 'rails_12factor'
