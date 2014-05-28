@@ -1,0 +1,30 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      ul
+        - @post.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :published_at
+    = f.datetime_select :published_at
+  .field
+    = f.label :body
+    = f.text_area :body
+  .field
+    = f.label :is_featured
+    = f.check_box :is_featured
+  .field
+    = f.label :category
+    = f.collection_select(:category_id, Category.all, :id, :title)
+  .field
+    = f.label :expired_at
+    = f.datetime_select :expired_at
+  .field
+    = f.label :is_vacancy
+    = f.check_box :is_vacancy
+  .actions = f.submit 'Save'

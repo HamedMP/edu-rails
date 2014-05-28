@@ -10,8 +10,4 @@ class Category < ActiveRecord::Base
 
   belongs_to :parent, class_name: 'Category',
                       foreign_key: 'category_id'
-
-  def to_param
-    slug
-  end
 end

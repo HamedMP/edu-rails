@@ -1,0 +1,33 @@
+h1 Listing posts
+
+table.posts
+  thead
+    tr
+      th Title
+      th Published at
+      th Body
+      th Is featured
+      th Category
+      th Expired at
+      th Is vacancy
+      th
+      th
+      th
+
+  tbody
+    - @posts.each do |post|
+      tr
+        td = post.title
+        td = post.published_at
+        td = post.body
+        td = post.is_featured
+        td = link_to post.category.title, post.category
+        td = post.expired_at
+        td = post.is_vacancy
+        td = link_to 'Show', post
+        td = link_to 'Edit', edit_post_path(post)
+        td = link_to 'Destroy', post, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Post', new_post_path

@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @post.title
+p
+  strong Published at:
+  = @post.published_at
+p
+  strong Body:
+  = @post.body
+p
+  strong Is featured:
+  = @post.is_featured
+p
+  strong Category:
+  = link_to @post.category.title, @post.category
+p
+  strong Expired at:
+  = @post.expired_at
+p
+  strong Is vacancy:
+  = @post.is_vacancy
+
+= link_to 'Edit', edit_post_path(@post)
+'|
+= link_to 'Back', posts_path
