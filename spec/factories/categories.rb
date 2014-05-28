@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :category do
     title "MyString"
-    sequence(:slug)
+    sequence(:slug) { |n| "slug-#{n}" }
     order 1
     parent nil
   end
