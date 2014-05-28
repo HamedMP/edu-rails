@@ -16,6 +16,6 @@
     = f.label :order
     = f.number_field :order
   .field
-    = f.label :category
-    = f.collection_select(:category_id, Category.all, :id, :title)
+    = f.label :parent
+    = f.collection_select(:category_id, Category.all, :id, :title, include_blank: 'None')
   .actions = f.submit 'Save'

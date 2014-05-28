@@ -10,8 +10,8 @@ p
   strong Order:
   = @category.order
 p
-  strong Category:
-  = @category.parent
+  strong Parent:
+  = link_to @category.parent.title, @category.parent if @category.parent
 
 = link_to 'Edit', edit_category_path(@category)
 '|
