@@ -1,0 +1,130 @@
+[
+  {
+    "title": "News",
+    "slug": "news",
+    "order": 1
+  },
+  {
+    "title": "Vacancies",
+    "slug": "vacancies",
+    "order": 2,
+    "sub-categories": [
+      {
+        "title": "Jobs",
+        "slug": "jobs",
+        "order": 1
+      },
+      {
+        "title": "Internships",
+        "slug": "internships",
+        "order": 2
+      },
+      {
+        "title": "Volunteering",
+        "slug": "volunteering",
+        "order": 3
+      },
+      {
+        "title": "Freelancer",
+        "slug": "freelancer",
+        "order": 4
+      }
+    ]
+  },
+  {
+    "title": "Events",
+    "slug": "events",
+    "order": 3,
+    "sub-categories": [
+      {
+        "title": "Trainings",
+        "slug": "trainings",
+        "order": 1
+      },
+      {
+        "title": "Camps",
+        "slug": "camps",
+        "order": 2
+      },
+      {
+        "title": "Conferences",
+        "slug": "conferences",
+        "order": 3
+      },
+      {
+        "title": "Contests",
+        "slug": "contests",
+        "order": 4
+      },
+      {
+        "title": "Workshops",
+        "slug": "workshops",
+        "order": 5
+      },
+      {
+        "title": "Adventure",
+        "slug": "adventure",
+        "order": 6
+      }
+    ]
+  },
+  {
+    "title": "Scholarships & Grants",
+    "slug": "scholarships-grants",
+    "order": 4,
+    "sub-categories": [
+      {
+        "title": "Bachelor",
+        "slug": "bachelor",
+        "order": 1
+      },
+      {
+        "title": "Grants",
+        "slug": "grants",
+        "order": 2
+      },
+      {
+        "title": "Master",
+        "slug": "master",
+        "order": 3
+      },
+      {
+        "title": "PhD",
+        "slug": "phd",
+        "order": 4
+      },
+      {
+        "title": "Fellowship",
+        "slug": "fellowship",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "title": "Articles",
+    "slug": "articles",
+    "order": 5,
+    "sub-categories": [
+      {
+        "title": "Interviews",
+        "slug": "interviews",
+        "order": 1
+      },
+      {
+        "title": "Biographies",
+        "slug": "biographies",
+        "order": 2
+      },
+      {
+        "title": "Marketing",
+        "slug": "marketing",
+        "order": 3
+      }
+    ]
+  },
+  {
+    "title": "E-library",
+    "slug": "e-library",
+    "order": 6
+  }
+]
