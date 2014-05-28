@@ -6,5 +6,9 @@ FactoryGirl.define do
     sequence(:slug) { |n| "slug-#{n}" }
     order 1
     parent nil
+
+    trait :parent do
+      parent nil
+    end
   end
 end
