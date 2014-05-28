@@ -8,7 +8,7 @@
     <%- end %>
     </div>
     <section class="entry-box">
-      <%- @category.posts.each do |post| %>
+      <%- @posts.each do |post| %>
       <article class="news-item clearfix">
         <%= link_to image_tag('http://www.placehold.it/320x220', class: 'responsive-img hover-effect'), post, class: 'entry-thumb' %>
         <div class="entry-content">
@@ -26,14 +26,7 @@
         </div><!--end:entry-content-->
       </article><!--end:entry-item-->
       <%- end %>
-      <ul class="pagination box-hover clearfix">
-        <li><a href="#" class="previous-page paging">Previous</a></li>
-        <li><a href="#" class="paging">1</a></li>
-        <li><a href="#" class="paging">2</a></li>
-        <li class="current"><a href="#" class="paging">3</a></li>
-        <li><a href="#" class="paging">4</a></li>
-        <li><a href="#" class="next-page paging">Next</a></li>
-      </ul><!--end:pagination-->
+      <%= paginate @posts %>
     </section><!--end:entry-box-->
   </div><!--end:main-col-->
   <%= render 'shared/sidebar' %>

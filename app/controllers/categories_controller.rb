@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   def show
     @related = Post.order("RANDOM()").limit(2)
     @random_categories = Category.order("RANDOM()").limit(5)
+    @posts = @category.posts.page(params[:page])
   end
 
   # GET /categories/new
