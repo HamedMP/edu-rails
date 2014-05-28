@@ -2,6 +2,7 @@ EDU ACTIVE
 ==========
 
 [![Build Status](https://drone.io/github.com/aliismayilov/edu-rails/status.png)](https://drone.io/github.com/aliismayilov/edu-rails/latest)
+[![Code Climate](https://codeclimate.com/github/aliismayilov/edu-rails.png)](https://codeclimate.com/github/aliismayilov/edu-rails)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
@@ -16,7 +17,7 @@ Nothing special.
 
 ## Configuration
 
-Nothing special.
+This project uses [gitflow](https://github.com/nvie/gitflow). Don't forget to run `git flow init`.
 
 ## Database
 
