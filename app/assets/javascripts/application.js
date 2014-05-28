@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require jquery.nivo.slider
+//= require jquery.carouFredSel
+//= require kendo.web.min
+//= require jquery.tweet
+//= require jquery.sticky
+//= require jquery.prettyPhoto
+//= require custom

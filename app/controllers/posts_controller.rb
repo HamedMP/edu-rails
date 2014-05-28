@@ -10,6 +10,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @related = Post.where.not(id: @post.id).where(category: @post.category).limit(4)
+    @random_categories = Category.order("RANDOM()").where.not(id: @post.category.id).limit(5)
   end
 
   # GET /posts/new

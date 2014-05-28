@@ -1,0 +1,472 @@
+@media only screen and (max-width: 1024px) {
+#main-menu{
+	display:none;
+}
+#responsive-menu{
+	display:block;
+}
+}
+@media only screen and (min-width: 768px) and (max-width: 1160px) {
+
+/* =========================================================
+	Columns
+============================================================ */
+.column-a {
+	margin-left:1.7699%;
+	width:30.2832%;
+}
+.column-b {
+	margin-left:1.7699%;
+	width:64.4071%;
+}
+.wrapper{
+	width:94%;
+}
+.one-second-column-a {
+	width:47.2973%;
+	margin-right:5.4054%;
+}
+.column-bleft {
+	width:48.4848%;
+	margin-right:3.0303%;
+}
+.column-bright {
+	width:48.4848%;
+}
+.sidebar {
+	margin-left:1.7699%;
+	width:28.3186%;
+}
+.main-col {
+	margin-left:1.7699%;
+	width:66.3717%;
+}
+/* =========================================================
+	Header
+============================================================ */
+.page-shadow{
+	background:none;
+}
+/* =========================================================
+	Search box
+============================================================ */
+.search-box {
+	margin-right:1.7699%;
+}
+/* =========================================================
+	Main Content
+============================================================ */
+.widget_grey{
+	padding-left:4.878%;
+	padding-right:4.878%;
+}
+.entry-item .image-frame{
+	margin-right:4.878%;
+	width:35%;
+}
+.entry-item .entry-title {
+	font-size:15px;
+}
+/* =========================================================
+	Middle Sidebar
+============================================================ */
+.middle-sidebar{
+	padding-left:4.878%;
+	padding-right:4.878%;
+}
+.widget figure, .gallery-widget figure {
+	margin-right:-4.878%;
+}
+.widget figure a {
+	margin-right:4.1463%;
+	width:28.4878%;
+}
+.gallery-widget figure a {
+	margin-right:4.878%;
+}
+/* =========================================================
+	Latest Articles
+============================================================ */
+.small-entry {
+	margin-right:-5.8824%
+}
+.small-entry article {
+	margin-right:5.8824%;
+	width:44.11765%;
+}
+.small-entry img,
+.big-entry img{
+	width:100%;
+}
+/* =========================================================
+	Carousel Slider
+============================================================ */
+
+.feature-caption span {
+	font-size:11px;
+}
+.feature-caption h1 {
+	line-height:18px;
+}
+
+.feature-caption h1 a{
+	font-size:16px;
+}
+/* =========================================================
+	Page Bottom 
+============================================================ */
+.page-bottom {
+	padding-left:1.7699115%;
+	padding-right:1.7699115%;
+}
+#back-top {
+    right: 1.7699115%;
+}
+/* =========================================================
+	Single Page
+============================================================ */
+.sidebar .widget  .image-frame{
+	width:26.5625%;
+}
+.sidebar .entry-item .image-frame{
+	margin-right:4.6875%;
+}
+.sidebar .one-second-column-a {
+	width:46.4285714%
+}
+.sidebar .widget figure a {
+	margin:0 5.3125%;
+}
+.sidebar .gallery-widget figure a {
+	margin-right:4.878%;
+	width:27.1875% !important;
+}
+
+/* =========================================================
+404 Page
+============================================================ */
+.breadcrumb-404{
+	margin-left:1.7699%;
+	margin-right:1.7699%;
+}
+}
+@media only screen and (min-width: 580px) and (max-width: 767px) {
+	
+/* =========================================================
+	Columns
+============================================================ */
+.column-a {
+	margin-left:1.82788623%;
+	width:47.258170651458700%;
+}
+.column-b {
+	margin-left:1.82788623%;
+	width:47.258170651458700%;
+}
+.wrapper{
+	width:94%;
+}
+.one-second-column-a {
+	width:47.2973%;
+	margin-right:5.4054%;
+}
+.column-bleft {
+	width:100%;
+	margin-right:0;
+}
+.column-bright {
+	width:100%;
+}
+.sidebar {
+	margin-left:1.7699%;
+	width:28.3186%;
+}
+.main-col {
+	margin-left:1.7699%;
+	width:66.3717%;
+}
+/* =========================================================
+	Header
+============================================================ */
+.page-shadow{
+	background:none;
+}
+/* =========================================================
+	Search box
+============================================================ */
+.search-box {
+	margin-right:1.7699%;
+}
+/* =========================================================
+	Main Content
+============================================================ */
+.widget_grey{
+	padding-left:4.878%;
+	padding-right:4.878%;
+}
+.entry-item .image-frame{
+	margin-right:4.878%;
+	width:35%;
+}
+.entry-item .entry-title {
+	font-size:15px;
+}
+/* =========================================================
+	Middle Sidebar
+============================================================ */
+.middle-sidebar{
+	padding-left:4.878%;
+	padding-right:4.878%;
+}
+.widget figure, .gallery-widget figure {
+	margin-right:-4.878%;
+}
+.widget figure a {
+	margin-right:4.1463%;
+	width:28.4878%;
+}
+.gallery-widget figure a {
+	margin-right:4.878%;
+}
+/* =========================================================
+	Latest Articles
+============================================================ */
+.small-entry {
+	margin-right:-5.8824%
+}
+.small-entry article {
+	margin-right:5.8824%;
+	width:44.11765%;
+}
+.small-entry img,
+.big-entry img{
+	width:100%;
+}
+/* =========================================================
+	Carousel Slider
+============================================================ */
+
+.feature-caption span {
+	font-size:11px;
+}
+.feature-caption h1 {
+	line-height:18px;
+}
+
+.feature-caption h1 a{
+	font-size:16px;
+}
+/* =========================================================
+	Page Bottom 
+============================================================ */
+.page-bottom {
+	padding-left:1.7699115%;
+	padding-right:1.7699115%;
+}
+#back-top {
+    right: 1.7699115%;
+}
+/* =========================================================
+	Single Page
+============================================================ */
+.sidebar .widget  .image-frame{
+	width:26.5625%;
+}
+.sidebar .entry-item .image-frame{
+	margin-right:4.6875%;
+}
+.sidebar .one-second-column-a {
+	width:46.4285714%
+}
+.sidebar .widget figure a {
+	margin:0 5.3125%;
+}
+.sidebar .gallery-widget figure a {
+	margin-right:4.878%;
+	width:27.1875% !important;
+}
+
+/* =========================================================
+404 Page
+============================================================ */
+.breadcrumb-404{
+	margin-left:1.7699%;
+	margin-right:1.7699%;
+}
+
+}
+
+@media only screen and (max-width: 579px) {
+	/* =========================================================
+	Columns
+============================================================ */
+.column-a {
+	margin-left:0;
+	width:100%;
+}
+.column-b {
+	margin-left:0;
+	width:100%;
+	padding-left:4.878%;
+	padding-right:4.878%;
+}
+.wrapper{
+	width:100%;
+}
+.one-second-column-a {
+	width:100%;
+	margin-right:0%;
+}
+.column-bleft {
+	width:90.24400%;
+	margin-right:0;
+}
+.column-bright {
+	width:90.24400%;
+}
+.sidebar {
+	margin-left:0;
+	width:100%;
+}
+.main-col {
+	margin-left:0;
+	width:100%;
+}
+.load-more{
+	width:90%;
+}
+.latest-article .widget-title{
+	width:90%;
+}
+/* =========================================================
+	Header
+============================================================ */
+.page-shadow{
+	background:none;
+}
+/* =========================================================
+	Search box
+============================================================ */
+.search-box {
+	margin-right:1.7699%;
+}
+/* =========================================================
+	Main Content
+============================================================ */
+.widget_grey, .widget{
+	padding-left:4.878%;
+	padding-right:4.878%;
+}
+.entry-item .image-frame{
+	margin-right:4.878%;
+	width:35%;
+}
+.entry-item .entry-title {
+	font-size:15px;
+}
+/* =========================================================
+	Middle Sidebar
+============================================================ */
+.middle-sidebar{
+	padding-left:4.878%;
+	padding-right:4.878%;
+}
+.widget figure, .gallery-widget figure {
+	margin-right:-4.878%;
+}
+.widget figure a {
+	margin-right:4.1463%;
+	width:28.4878%;
+}
+.gallery-widget figure a {
+	margin-right:4.878%;
+}
+/* =========================================================
+	Latest Articles
+============================================================ */
+.small-entry {
+	margin-right:-5.8824%
+}
+.small-entry article {
+	margin-right:5.8824%;
+	width:44.11765%;
+}
+.small-entry img,
+.big-entry img{
+	width:100%;
+}
+/* =========================================================
+	Carousel Slider
+============================================================ */
+
+.feature-caption span {
+	font-size:11px;
+}
+.feature-caption h1 {
+	line-height:18px;
+}
+
+.feature-caption h1 a{
+	font-size:16px;
+}
+/* =========================================================
+	Page Bottom 
+============================================================ */
+.page-bottom {
+	padding-left:1.7699115%;
+	padding-right:1.7699115%;
+}
+#back-top {
+    right: 1.7699115%;
+}
+/* =========================================================
+	Single Page
+============================================================ */
+.sidebar .widget  .image-frame{
+	width:26.5625%;
+}
+.sidebar .entry-item .image-frame{
+	margin-right:4.6875%;
+}
+.sidebar .one-second-column-a {
+	width:46.4285714%
+}
+.sidebar .widget figure a {
+	margin:0 5.3125%;
+}
+.sidebar .gallery-widget figure a {
+	margin-right:4.878%;
+	width:27.1875% !important;
+}
+.main-col, .sidebar .widget, .sidebar .gallery-widget{
+	margin-left:0;
+	width:90%;
+	padding-left:4.878%;
+	padding-right:4.878%;
+}
+/* =========================================================
+404 Page
+============================================================ */
+.breadcrumb-404{
+	margin-left:1.7699%;
+	margin-right:1.7699%;
+}
+.error-404 .left-col,.error-404 .right-col{
+	float:none;
+	width:100%;
+	text-align:left;
+}
+.error-404 .left-col p{
+	text-align:left;
+}
+
+#responsive-menu{
+	width:120px;
+}
+.copy-right{
+	float:left;
+}
+.search-form .search-text{
+	width:80px;
+}
+}

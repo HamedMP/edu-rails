@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
   default_scope { order(:order) }
+  scope :root, -> { where(parent: nil) }
 
   validates :title, presence: true
   validates :slug, presence: true, uniqueness: true

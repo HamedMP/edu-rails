@@ -1,14 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>EduRails</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<meta charset="utf-8">
+<title>EDU ACTIVE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<%= stylesheet_link_tag 'application', media: 'all' %>
+<link href='https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if IE 7]><link rel="stylesheet" href="<%= asset_path('ie7.css') %>" type="text/css" media="all" /><![endif]-->
+<!--[if IE ]><link rel="stylesheet" href="<%= asset_path('ie.css') %>" type="text/css" media="all" /><![endif]-->
+<!--[if lt IE 9]>
+  <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<!-- Le fav and touch icons -->
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+
 </head>
 <body>
+<div class="page-shadow">
+  <div class="wrapper">
+    <header class="page-header clearfix">
+      <div id="header-top" class="clearfix">
+        <nav id="main-nav">
+          <ul id="main-menu" class="clearfix">
+            <li class="home-menu-item">
+              <%= link_to 'Home', root_path %>
+            </li>
+            <%= render Category.root %>
+          </ul>
+        </nav>
+        <div class="search-box clearfix">
+          <form action="#" class="search-form clearfix" method="get">
+            <input type="text" onBlur="if(this.value=='')this.value=this.defaultValue;" onFocus="if(this.value==this.defaultValue)this.value='';" value="Search" name="s" class="search-text">
+            <input type="submit" value="" name="submit" class="search-submit">
+          </form><!-- search-form -->
+        </div><!--end:search-box-->
+      </div><!--end:header-top-->
 
-<%= yield %>
-
+      <div id="header-bottom" class="clearfix">
+        <div id="logo-image">
+          <%= link_to image_tag('logo.png'), root_path %>
+        </div>
+        <ul class="social-links clearfix">
+          <li class="twitter-icon">
+            <a target="_blank" title="Twitter" class="twitter" href="https://twitter.com/EduActiveCom">
+              <%= image_tag('icons/twitter-icon.png') %>
+            </a>
+          </li>
+          <li class="google-plus-icon">
+            <a target="_blank" title="Google Plus" class="google-plus" href="https://plus.google.com/104715930916060245515">
+              <%= image_tag('icons/google-plus-icon.png') %>
+            </a>
+          </li>
+          <li class="facebook-icon">
+            <a target="_blank" title="Facebook" class="facebook" href="https://www.facebook.com/youthofeurope">
+              <%= image_tag('icons/facebook-icon.png') %>
+            </a>
+          </li>
+          <li class="linkedin-icon">
+            <a target="_blank" title="Linkedin" href="http://www.linkedin.com/groups/Eduactivecom-4421661">
+              <%= image_tag('icons/linkedin-icon.png') %>
+            </a>
+          </li>
+        </ul><!--end:social-links-->
+      </div><!--header-bottom-->
+    </header><!--page-header-->
+    <div class="separator"></div>
+    <%= yield %>
+    <footer class="page-bottom clearfix">
+      <div id="footer-logo">
+        <%= link_to image_tag('footer-logo.png', class: 'responsive-img'), root_path %>
+      </div>
+      <nav id="footer-nav">
+        <ul class="clearfix">
+          <li><a href="#">About us</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Term of use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </nav>
+      <div class="copy-right">
+        <span>Copyright &copy; <%= Time.now.utc.strftime('%Y') %> edu-active.com. All rights reserved.</span>
+      </div>
+      <div class="clear"></div>
+      <p id="back-top">
+        <a href="#top">Back to Top</a>
+      </p>
+    </footer>
+  </div><!--wrapper-->
+</div><!--page-shadow-->
+<%= javascript_include_tag 'application' %>
+<!--[if IE 7]><script src="<%= asset_path('fix-ie7.js') %>" charset="utf-8"></script><![endif]-->
 </body>
 </html>
