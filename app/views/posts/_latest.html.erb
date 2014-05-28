@@ -1,0 +1,42 @@
+<div class="small-entry clearfix">
+  <article class="clearfix">
+    <%= link_to image_tag('http://www.placehold.it/150x105', class: 'responsive-img hover-effect'), latest[0], class: 'image-frame' %>
+    <div class="entry-content">
+      <span class="entry-meta">in:&nbsp;</span>
+      <%= link_to latest[0].category.title, latest[0].category, class: 'entry-category' %>
+      <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <span class="entry-date"><%= latest[0].published_at.strftime('%d.%m.%Y') %></span>
+      <h5 class="entry-title">
+        <%= link_to latest[0].title, latest[0] %>
+      </h5>
+      <p><%= truncate(strip_tags(latest[0].body), length: 100, escape: false) %></p>
+    </div><!--entry-content-->
+  </article>
+  <article class="clearfix">
+    <%= link_to image_tag('http://www.placehold.it/150x150', class: 'responsive-img hover-effect'), latest[1], class: 'image-frame' %>
+    <div class="entry-content">
+      <span class="entry-meta">in:&nbsp;</span>
+      <%= link_to latest[1].category.title, latest[1].category, class: 'entry-category' %>
+      <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <span class="entry-date"><%= latest[1].published_at.strftime('%d.%m.%Y') %></span>
+      <h5 class="entry-title">
+        <%= link_to latest[1].title, latest[1] %>
+      </h5>
+      <p><%= truncate(strip_tags(latest[1].body), length: 70, escape: false) %></p>
+    </div><!--entry-content-->
+  </article>
+</div><!--small-entry-->
+
+<article class="big-entry clearfix">
+  <%= link_to image_tag('http://www.placehold.it/320x220', class: 'responsive-img hover-effect'), latest[2], class: 'image-frame' %>
+  <div class="entry-content">
+    <span class="entry-meta">in:&nbsp;</span>
+    <%= link_to latest[2].category.title, latest[2].category, class: 'entry-category' %>
+    <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span class="entry-date"><%= latest[2].published_at.strftime('%d.%m.%Y') %></span>
+    <h3 class="entry-title">
+      <%= link_to latest[2].title, latest[2] %>
+    </h3>
+    <p><%= truncate(strip_tags(latest[2].body), length: 150, escape: false) %></p>
+  </div><!--entry-content-->
+</article>

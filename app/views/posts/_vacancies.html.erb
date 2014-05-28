@@ -1,0 +1,42 @@
+<article class="big-entry clearfix">
+  <%= link_to image_tag('http://www.placehold.it/320x220', class: 'responsive-img hover-effect'), vacancies[0], class: 'image-frame' %>
+  <div class="entry-content">
+    <span class="entry-meta">in:&nbsp;</span>
+    <%= link_to vacancies[0].category.title, vacancies[0].category, class: 'entry-category' %>
+    <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span class="entry-date"><%= vacancies[0].published_at.strftime('%d.%m.%Y') %></span>
+    <h3 class="entry-title">
+      <%= link_to vacancies[0].title, vacancies[0] %>
+    </h3>
+    <p><%= truncate(strip_tags(vacancies[0].body), length: 150, escape: false) %></p>
+  </div><!--entry-content-->
+</article>
+
+<div class="small-entry clearfix">
+  <article class="clearfix">
+    <%= link_to image_tag('http://www.placehold.it/150x105', class: 'responsive-img hover-effect'), vacancies[1], class: 'image-frame' %>
+    <div class="entry-content">
+      <span class="entry-meta">in:&nbsp;</span>
+      <%= link_to vacancies[1].category.title, vacancies[1].category, class: 'entry-category' %>
+      <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <span class="entry-date"><%= vacancies[1].published_at.strftime('%d.%m.%Y') %></span>
+      <h5 class="entry-title">
+        <%= link_to vacancies[1].title, vacancies[1] %>
+      </h5>
+      <p><%= truncate(strip_tags(vacancies[1].body), length: 100, escape: false) %></p>
+    </div><!--entry-content-->
+  </article>
+  <article class="clearfix">
+    <%= link_to image_tag('http://www.placehold.it/150x150', class: 'responsive-img hover-effect'), vacancies[2], class: 'image-frame' %>
+    <div class="entry-content">
+      <span class="entry-meta">in:&nbsp;</span>
+      <%= link_to vacancies[2].category.title, vacancies[2].category, class: 'entry-category' %>
+      <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <span class="entry-date"><%= vacancies[2].published_at.strftime('%d.%m.%Y') %></span>
+      <h5 class="entry-title">
+        <%= link_to vacancies[2].title, vacancies[2] %>
+      </h5>
+      <p><%= truncate(strip_tags(vacancies[2].body), length: 70, escape: false) %></p>
+    </div><!--entry-content-->
+  </article>
+</div><!--small-entry-->

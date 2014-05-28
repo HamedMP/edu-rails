@@ -4,7 +4,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.ordinary.limit(9)
+    @featured = Post.featured.limit(4)
+    @vacancies = Post.non_featured_vacancies.limit(9)
   end
 
   # GET /posts/1
