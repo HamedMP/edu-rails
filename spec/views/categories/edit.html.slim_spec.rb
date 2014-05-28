@@ -2,12 +2,7 @@ require 'spec_helper'
 
 describe "categories/edit", :type => :view do
   before(:each) do
-    @category = assign(:category, Category.create!(
-      :title => "MyString",
-      :slug => "MyString",
-      :order => 1,
-      :category => nil
-    ))
+    @category = assign(:category, create(:category))
   end
 
   it "renders the edit category form" do

@@ -2,12 +2,7 @@ require 'spec_helper'
 
 describe "categories/show", :type => :view do
   before(:each) do
-    @category = assign(:category, Category.create!(
-      :title => "Title",
-      :slug => "Slug",
-      :order => 1,
-      :category => nil
-    ))
+    @category = assign(:category, create(:category))
   end
 
   it "renders attributes in <p>" do

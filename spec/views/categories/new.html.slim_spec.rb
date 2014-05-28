@@ -2,12 +2,7 @@ require 'spec_helper'
 
 describe "categories/new", :type => :view do
   before(:each) do
-    assign(:category, Category.new(
-      :title => "MyString",
-      :slug => "MyString",
-      :order => 1,
-      :category => nil
-    ))
+    assign(:category, build(:category))
   end
 
   it "renders new category form" do

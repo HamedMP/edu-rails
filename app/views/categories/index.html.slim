@@ -1,12 +1,12 @@
 h1 Listing categories
 
-table
+table.categories
   thead
     tr
       th Title
       th Slug
       th Order
-      th Category
+      th Parent
       th
       th
       th
@@ -17,7 +17,7 @@ table
         td = category.title
         td = category.slug
         td = category.order
-        td = category.category
+        td = category.parent
         td = link_to 'Show', category
         td = link_to 'Edit', edit_category_path(category)
         td = link_to 'Destroy', category, data: {:confirm => 'Are you sure?'}, :method => :delete
