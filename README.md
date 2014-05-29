@@ -13,11 +13,17 @@ application up and running.
 
 ## System dependencies
 
-Nothing special.
+This project uses [gitflow](https://github.com/nvie/gitflow).
 
 ## Configuration
 
-This project uses [gitflow](https://github.com/nvie/gitflow). Don't forget to run `git flow init`.
+Run `git flow init` to get into development.
+
+Create `.env` file with the following keys and values for authentication in development environment:
+```yaml
+FACEBOOK_KEY: ...
+FACEBOOK_SECRET: ...
+```
 
 ## Database
 
@@ -26,7 +32,7 @@ Nothing special.
 ## How to run the test suite
 
 ```sh
-$ rake
+$ bin/rake
 ```
 
 ## Services (job queues, cache servers, search engines, etc.)
