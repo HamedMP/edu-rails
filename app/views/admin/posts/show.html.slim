@@ -1,4 +1,5 @@
-p#notice = notice
+- if notice
+  #notice.alert.alert-success = notice
 
 p
   strong Title:
@@ -8,13 +9,13 @@ p
   = @post.published_at
 p
   strong Body:
-  = @post.body
+  = truncate(strip_tags(@post.body), length: 300, escape: false)
 p
   strong Is featured:
   = @post.is_featured
 p
   strong Category:
-  = link_to @post.category.title, @post.category
+  = link_to @post.category.title, [:admin, @post.category]
 p
   strong Expired at:
   = @post.expired_at
@@ -22,6 +23,5 @@ p
   strong Is vacancy:
   = @post.is_vacancy
 
-= link_to 'Edit', edit_admin_post_path(@post)
-'|
-= link_to 'Back', admin_posts_path
+= link_to 'Edit', edit_admin_post_path(@post), class: 'btn btn-default'
+= link_to 'Back', admin_posts_path, class: 'btn btn-default'
