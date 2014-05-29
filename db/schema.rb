@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528021102) do
+ActiveRecord::Schema.define(version: 20140529004648) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -38,5 +38,19 @@ ActiveRecord::Schema.define(version: 20140528021102) do
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
+
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "full_name"
+    t.string   "oauth_token"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["oauth_token"], name: "index_users_on_oauth_token", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid", unique: true
 
 end
