@@ -21,7 +21,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
-  gem 'pry-rails'
 end
 
 group :development, :test do
@@ -29,4 +28,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-its'
+  gem 'pry-rails'
 end

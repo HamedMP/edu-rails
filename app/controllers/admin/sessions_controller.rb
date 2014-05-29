@@ -1,4 +1,4 @@
-class Admin::SessionsController < Admin::AdminController
+class Admin::SessionsController < ActionController::Base
   skip_before_filter :save_return_path
 
   def create

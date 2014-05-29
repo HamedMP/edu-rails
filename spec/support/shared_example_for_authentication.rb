@@ -1,5 +1,5 @@
 shared_examples_for :action_that_requires_authentication do
-  context :not_logged_in do
+  context 'not logged in' do
     it {
       origin = request.post? ? root_url : request.fullpath
       should redirect_to(login_url(provider: 'facebook',
