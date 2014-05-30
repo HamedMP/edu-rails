@@ -23,4 +23,8 @@ class Category < ActiveRecord::Base
     end
     ancestor_list.reverse
   end
+
+  def to_param
+    slug
+  end
 end

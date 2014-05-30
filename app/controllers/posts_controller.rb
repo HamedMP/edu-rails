@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def index
-    @category = Category.find(params[:category_id])
+    @category = Category.find_by(slug: params[:category_id])
     @related = Post.order("RANDOM()").limit(2)
     @random_categories = Category.order("RANDOM()").limit(5)
     @posts = @category.posts.page(params[:page])
