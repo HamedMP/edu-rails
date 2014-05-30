@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  # GET /posts
-  # GET /posts.json
-  def index
+  # GET /posts/home
+  # GET /posts/home.json
+  def home
     @posts = Post.ordinary.limit(9)
     @featured = Post.featured.limit(4)
     @vacancies = Post.non_featured_vacancies.limit(9)

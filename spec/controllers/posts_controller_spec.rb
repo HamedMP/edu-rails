@@ -31,10 +31,10 @@ describe PostsController, :type => :controller do
   # PostsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET index" do
+  describe "GET home" do
     it "assigns all posts as @posts" do
       post = Post.create! valid_attributes
-      get :index, {}, valid_session
+      get :home, {}, valid_session
       expect(assigns(:posts)).to eq([post])
     end
   end
