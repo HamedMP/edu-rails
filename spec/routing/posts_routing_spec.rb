@@ -4,11 +4,11 @@ describe PostsController, :type => :routing do
   describe "routing" do
 
     it "routes to #show" do
-      expect(get: "/1/posts/2").to route_to("posts#show", category_id: '1', id: '2')
+      expect(get: "/1/2").to route_to("posts#show", category_id: '1', id: '2')
     end
 
     it "routes to #index" do
-      expect(get: "/1/posts").to route_to("posts#index", category_id: '1')
+      expect(get: "/1").to route_to("posts#index", category_id: '1')
     end
 
   end
