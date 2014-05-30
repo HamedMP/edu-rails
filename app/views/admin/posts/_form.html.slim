@@ -14,7 +14,7 @@
     = f.datetime_select :published_at
   .form-group
     = f.label :body
-    = f.text_area :body, class: 'form-control'
+    = f.cktext_area :body, class: 'form-control ckeditor'
   .checkbox
     = f.label :is_featured
       span Featured?
