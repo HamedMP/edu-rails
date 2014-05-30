@@ -57,4 +57,25 @@ describe Post, :type => :model do
       it { is_expected.not_to include featured_vacancy }
     end
   end
+
+  describe 'assign_slug on validation' do
+    context 'new' do
+      subject { build(:post) }
+      it { is_expected.to be_valid }
+    end
+
+    context 'existing' do
+      before { create(:post) }
+
+      subject { build(:post) }
+      it { is_expected.to be_valid }
+    end
+
+    context 'existing with explicitly assigned' do
+      before { create(:post, slug: 'slug') }
+
+      subject { build(:post, slug: 'slug') }
+      it { is_expected.to be_valid }
+    end
+  end
 end

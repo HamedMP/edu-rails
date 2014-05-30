@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529004648) do
+ActiveRecord::Schema.define(version: 20140530220815) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 20140529004648) do
     t.boolean  "is_vacancy",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
+  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
 
   create_table "users", force: true do |t|
     t.string   "provider"

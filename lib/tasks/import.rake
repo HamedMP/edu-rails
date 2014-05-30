@@ -9,7 +9,7 @@ task :import, [:url, :limit] => :environment do |t, args|
   categories_map = {}
 
   # Get some posts
-  entries = postgres.exec("SELECT title, pub_date, body, featured, category_id, expire_date FROM web_entry LIMIT #{args[:limit]}")
+  entries = postgres.exec("SELECT title, slug, pub_date, body, featured, category_id, expire_date FROM web_entry LIMIT #{args[:limit]}")
   entries.num_tuples.times do |i|
     entry_hash = entries[i]
 
