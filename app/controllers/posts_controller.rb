@@ -14,4 +14,13 @@ class PostsController < ApplicationController
     @related = Post.where.not(id: @post.id).where(category: @post.category).limit(4)
     @random_categories = Category.order("RANDOM()").where.not(id: @post.category.id).limit(5)
   end
+
+  # GET /categories/1
+  # GET /categories/1.json
+  def index
+    @category = Category.find(params[:category_id])
+    @related = Post.order("RANDOM()").limit(2)
+    @random_categories = Category.order("RANDOM()").limit(5)
+    @posts = @category.posts.page(params[:page])
+  end
 end

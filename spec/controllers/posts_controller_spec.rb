@@ -42,8 +42,16 @@ describe PostsController, :type => :controller do
   describe "GET show" do
     it "assigns the requested post as @post" do
       post = Post.create! valid_attributes
-      get :show, {:id => post.to_param}, valid_session
+      get :show, {category_id: category, id: post}, valid_session
       expect(assigns(:post)).to eq(post)
+    end
+  end
+
+  describe "GET index" do
+    it "assigns the requested category as @category" do
+      category = create :category
+      get :index, {category_id: category}, valid_session
+      expect(assigns(:category)).to eq(category)
     end
   end
 

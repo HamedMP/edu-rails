@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   delete '/logout'               => 'admin/sessions#destroy',
     as: :logout
 
-  resources :posts, only: :show
-
-  resources :categories, only: :show
+  resources :categories, only: [] do
+    resources :posts, only: [:show, :index]
+  end
 
   root 'posts#home'
 end
