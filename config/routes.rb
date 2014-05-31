@@ -15,7 +15,8 @@ Rails.application.routes.draw do
     as: :logout
 
   resources :categories, only: [], path: '' do
-    resources :posts, only: [:show, :index], path: ''
+    resources :posts, only: :index, path: ''
+    get '/:year/:month/:day/:id' => 'posts#show', as: :post
   end
 
   root 'posts#home'

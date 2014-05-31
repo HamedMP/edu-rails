@@ -39,7 +39,7 @@ describe Admin::PostsController, :type => :controller do
   end
 
   describe "GET show" do
-    let(:action) { get :show, id: post }
+    let(:action) { get :show, post.to_path_params }
     let(:post) { create :post }
 
     it_behaves_like :action_that_requires_authentication do
@@ -74,7 +74,7 @@ describe Admin::PostsController, :type => :controller do
   end
 
   describe "GET edit" do
-    let(:action) { get :edit, id: post }
+    let(:action) { get :edit, post.to_path_params }
     let(:post) { create :post }
 
     it_behaves_like :action_that_requires_authentication do
@@ -145,7 +145,7 @@ describe Admin::PostsController, :type => :controller do
   end
 
   describe "PUT update" do
-    let(:action) { put :update, params.merge(id: post) }
+    let(:action) { put :update, params.merge(post.to_path_params) }
     let(:post) { create :post }
 
     it_behaves_like :action_that_requires_authentication do
@@ -200,7 +200,7 @@ describe Admin::PostsController, :type => :controller do
   end
 
   describe "DELETE destroy" do
-    let(:action) { delete :destroy, id: post }
+    let(:action) { delete :destroy, post.to_path_params }
     let!(:post) { create :post }
 
     it_behaves_like :action_that_requires_authentication do

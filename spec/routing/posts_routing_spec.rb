@@ -4,11 +4,18 @@ describe PostsController, :type => :routing do
   describe "routing" do
 
     it "routes to #show" do
-      expect(get: "/1/2").to route_to("posts#show", category_id: '1', id: '2')
+      expect(get: "/category-slug/2014/may/01/post-slug")
+        .to route_to("posts#show",
+          category_id: 'category-slug',
+          year: '2014',
+          month: 'may',
+          day: '01',
+          id: 'post-slug'
+        )
     end
 
     it "routes to #index" do
-      expect(get: "/1").to route_to("posts#index", category_id: '1')
+      expect(get: "/category-slug").to route_to("posts#index", category_id: 'category-slug')
     end
 
   end

@@ -13,6 +13,20 @@ class Post < ActiveRecord::Base
 
   before_validation :assign_slug, on: :create
 
+  def to_param
+    return unless self.id
+    "#{self.created_at.strftime('%Y/%b/%d').downcase}/#{self.slug}"
+  end
+
+  def to_path_params
+    {
+      year: self.created_at.year,
+      month: self.created_at.strftime('%b').downcase,
+      day: self.created_at.day,
+      id: self.slug
+    }
+  end
+
   private
     def check_vacancy
       return if self.is_vacancy
