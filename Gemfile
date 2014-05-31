@@ -15,6 +15,7 @@ gem 'bootsy'
 
 group :production, :staging do
   gem 'rails_12factor'
+  gem 'heroku-deflater'
 end
 
 group :development do
