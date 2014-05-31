@@ -30,7 +30,7 @@ class Post < ActiveRecord::Base
   private
     def check_vacancy
       return if self.is_vacancy
-      self.category.tree.each do |category|
+      self.category.up_tree.each do |category|
         if category.slug == 'vacancies'
           self.is_vacancy = true and return
         end

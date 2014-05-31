@@ -14,7 +14,7 @@ class Category < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
 
-  def tree
+  def up_tree
     ancestor_list = [self]
     current_category = self
     while current_category.parent
@@ -22,6 +22,18 @@ class Category < ActiveRecord::Base
       ancestor_list << current_category
     end
     ancestor_list.reverse
+  end
+
+  def down_roots(category = self)
+    if category.children.any?
+      descendants = category.children.to_a
+      category.children.each do |cat|
+        descendants += down_roots(cat)
+      end
+      descendants.uniq
+    else
+      [self]
+    end
   end
 
   def to_param
