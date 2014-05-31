@@ -48,10 +48,23 @@ describe PostsController, :type => :controller do
   end
 
   describe "GET index" do
+    let(:action) { get :index, {category_id: category} }
+    let(:category) { create :category }
+
+    before do
+      create_list(:post, 2)
+      create_list(:post, 2, category: category)
+      child_category = create(:category, parent: category)
+      create_list(:post, 2, category: child_category)
+      action
+    end
+
     it "assigns the requested category as @category" do
-      category = create :category
-      get :index, {category_id: category}, valid_session
       expect(assigns(:category)).to eq(category)
+    end
+
+    it "assigns all descendant posts as @category" do
+      expect(assigns(:posts).count).to eql 4
     end
   end
 

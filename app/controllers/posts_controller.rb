@@ -21,6 +21,8 @@ class PostsController < ApplicationController
     @category = Category.find_by(slug: params[:category_id])
     @related = Post.order("RANDOM()").limit(2)
     @random_categories = Category.order("RANDOM()").limit(5)
-    @posts = @category.posts.page(params[:page])
+
+    matches_all_categories = @category.down_roots.map { |c| "category_id = #{c.id}" }.join(' OR ')
+    @posts = Post.where(matches_all_categories).page(params[:page])
   end
 end
