@@ -24,6 +24,7 @@ task :import, [:url, :limit] => :environment do |t, args|
     entry_hash['published_at'] = entry_hash.delete 'pub_date'
     entry_hash['is_featured'] = entry_hash.delete 'featured'
     entry_hash['expired_at'] = entry_hash.delete 'expire_date'
+    entry_hash['created_at'] = entry_hash['published_at']
 
     post = Post.find_or_initialize_by entry_hash
     unless post.persisted?
