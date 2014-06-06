@@ -12,6 +12,7 @@ gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'omniauth-facebook'
 gem 'bootsy'
+gem 'dalli'
 
 group :production, :staging do
   gem 'rails_12factor'
