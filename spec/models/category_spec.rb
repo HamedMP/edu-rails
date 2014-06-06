@@ -30,8 +30,8 @@ describe Category, :type => :model do
 
     it 'changes on update of the category' do
       category = create(:category)
-
-      expect{ category.update updated_at: 1.day.from_now }
+      travel_to 1.day.from_now
+      expect{ category.update title: 'new' }
         .to change { Category.collection_cache_key }
     end
   end

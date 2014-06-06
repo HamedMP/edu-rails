@@ -11,7 +11,7 @@ describe Post, :type => :model do
   end
 
   describe 'scopes' do
-    before { Rails.cache.clear }
+    before { travel_to 1.day.from_now }
 
     describe 'default' do
       let!(:post1) { create :post, published_at: 2.days.ago }
@@ -89,8 +89,8 @@ describe Post, :type => :model do
 
     it 'changes on update of the post' do
       post = create(:post)
-
-      expect{ post.update updated_at: 1.day.from_now }
+      travel_to 1.day.from_now
+      expect{ post.update title: 'new' }
         .to change { Post.collection_cache_key }
     end
   end
