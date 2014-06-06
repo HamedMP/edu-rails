@@ -78,4 +78,10 @@ describe Post, :type => :model do
       it { is_expected.to be_valid }
     end
   end
+
+  describe '.collection_cache_key' do
+    it 'changes on creation of new post' do
+      expect{ Post.collection_cache_key }.to change { create :post }
+    end
+  end
 end

@@ -2,9 +2,9 @@ class PostsController < ApplicationController
   # GET /posts/home
   # GET /posts/home.json
   def home
-    @posts = Post.ordinary.limit(9)
-    @featured = Post.featured.limit(4)
-    @vacancies = Post.non_featured_vacancies.limit(9)
+    @posts = Post.ordinary(9)
+    @featured = Post.featured(4)
+    @vacancies = Post.non_featured_vacancies(9)
   end
 
   # GET /posts/1
