@@ -1,0 +1,17 @@
+<div class="small-entry clearfix">
+  <% double.each do |post| %>
+    <article class="clearfix">
+      <%= link_to image_tag('http://www.placehold.it/150x105', class: 'responsive-img hover-effect'), post, class: 'image-frame' %>
+      <div class="entry-content">
+        <span class="entry-meta">in:&nbsp;</span>
+        <%= link_to post.category.title, post.category, class: 'entry-category' %>
+        <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <span class="entry-date"><%= post.published_at.strftime('%d.%m.%Y') %></span>
+        <h5 class="entry-title">
+          <%= link_to post.title, post %>
+        </h5>
+        <p><%= truncate(strip_tags(post.body), length: 100, escape: false) %></p>
+      </div><!--entry-content-->
+    </article>
+  <% end %>
+</div><!--small-entry-->

@@ -35,17 +35,19 @@
       <div class="column-bleft">
   <div class="bleft-stick">
     <h1 class="widget-title">Latest News</h1>
-    <%= render partial: 'latest', locals: {latest: @posts[0..3]} %>
-    <%= render partial: 'latest', locals: {latest: @posts[3..6]} %>
-    <%= render partial: 'latest', locals: {latest: @posts[6..9]} %>
+    <% @posts.each_slice(3) do |triple| %>
+      <%= render partial: 'double', locals: {double: triple[0..1]} %>
+      <%= render partial: 'single', locals: {single: triple[2]} %>
+    <% end %>
   </div><!--bleft-stick-->
   </div><!--column-bleft-->
       <div class="column-bright">
   <div class="bright-stick">
     <h1 class="widget-title">Vacancies</h1>
-    <%= render partial: 'vacancies', locals: {vacancies: @vacancies[0..3]} %>
-    <%= render partial: 'vacancies', locals: {vacancies: @vacancies[3..6]} %>
-    <%= render partial: 'vacancies', locals: {vacancies: @vacancies[6..9]} %>
+    <% @vacancies.each_slice(3) do |triple| %>
+      <%= render partial: 'single', locals: {single: triple[0]} %>
+      <%= render partial: 'double', locals: {double: triple[1..2]} %>
+    <% end %>
   </div><!--bright-stick-->
   </div><!--column-bright-->
       <div class="clear"></div>

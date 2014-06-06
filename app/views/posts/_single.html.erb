@@ -1,0 +1,13 @@
+<article class="big-entry clearfix">
+  <%= link_to image_tag('http://www.placehold.it/320x220', class: 'responsive-img hover-effect'), single, class: 'image-frame' %>
+  <div class="entry-content">
+    <span class="entry-meta">in:&nbsp;</span>
+    <%= link_to single.category.title, single.category, class: 'entry-category' %>
+    <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span class="entry-date"><%= single.published_at.strftime('%d.%m.%Y') %></span>
+    <h3 class="entry-title">
+      <%= link_to single.title, single %>
+    </h3>
+    <p><%= truncate(strip_tags(single.body), length: 150, escape: false) %></p>
+  </div><!--entry-content-->
+</article>
