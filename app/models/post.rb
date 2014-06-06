@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
     end
   end
   scope :related, ->(post, limit=nil) do
-    Rails.cache.fetch [post, :related], expires_in: 1.day do
+    Rails.cache.fetch [post, :related, limit], expires_in: 1.day do
       where.not(id: post.id).where(category: post.category).limit(limit).load
     end
   end

@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.cached_find_by_slug(params[:id])
     @related = Post.related(@post, 4)
-    @random_categories = Category.order("RANDOM()").where.not(id: @post.category.id).limit(5)
+    @random_categories = Category.random(@post.category)
   end
 
   # GET /categories/1

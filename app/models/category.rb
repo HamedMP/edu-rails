@@ -1,8 +1,13 @@
 class Category < ActiveRecord::Base
   default_scope { order(:order) }
   scope :root, -> do
-    Rails.cache.fetch collection_cache_key do
+    Rails.cache.fetch [collection_cache_key, :root] do
       where(parent: nil).includes(:children).load
+    end
+  end
+  scope :random, ->(category, limit=nil) do
+    Rails.cache.fetch [category, :random, limit] do
+      order("RANDOM()").where.not(id: category.id).limit(limit)
     end
   end
 
