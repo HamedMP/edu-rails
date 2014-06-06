@@ -21,4 +21,10 @@ describe Category, :type => :model do
       ]
     end
   end
+
+  describe '.collection_cache_key' do
+    it 'changes on creation of new category' do
+      expect{ Category.collection_cache_key }.to change { create :category }
+    end
+  end
 end

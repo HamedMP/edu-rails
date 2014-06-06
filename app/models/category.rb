@@ -1,6 +1,10 @@
 class Category < ActiveRecord::Base
   default_scope { order(:order) }
-  scope :root, -> { where(parent: nil) }
+  scope :root, -> do
+    Rails.cache.fetch collection_cache_key do
+      where(parent: nil).includes(:children).all
+    end
+  end
 
   validates :title, presence: true
   validates :slug, presence: true, uniqueness: true
@@ -10,7 +14,8 @@ class Category < ActiveRecord::Base
                       dependent: :destroy
 
   belongs_to :parent, class_name: 'Category',
-                      foreign_key: 'category_id'
+                      foreign_key: 'category_id',
+                      touch: true
 
   has_many :posts, dependent: :destroy
 
@@ -38,5 +43,10 @@ class Category < ActiveRecord::Base
 
   def to_param
     slug
+  end
+
+  def self.collection_cache_key
+    count, max_updated_at = Category.pluck("COUNT(*)", "MAX(updated_at)").flatten
+    "categories/all-#{count}-#{max_updated_at.try(:to_datetime).try(:to_i)}"
   end
 end
