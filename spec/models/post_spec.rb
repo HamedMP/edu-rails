@@ -83,7 +83,15 @@ describe Post, :type => :model do
 
   describe '.collection_cache_key' do
     it 'changes on creation of new post' do
-      expect{ Post.collection_cache_key }.to change { create :post }
+      expect{ create :post }
+        .to change { Post.collection_cache_key }
+    end
+
+    it 'changes on update of the post' do
+      post = create(:post)
+
+      expect{ post.update updated_at: 1.day.from_now }
+        .to change { Post.collection_cache_key }
     end
   end
 end

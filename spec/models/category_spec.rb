@@ -24,7 +24,15 @@ describe Category, :type => :model do
 
   describe '.collection_cache_key' do
     it 'changes on creation of new category' do
-      expect{ Category.collection_cache_key }.to change { create :category }
+      expect{ create :category }
+        .to change { Category.collection_cache_key }
+    end
+
+    it 'changes on update of the category' do
+      category = create(:category)
+
+      expect{ category.update updated_at: 1.day.from_now }
+        .to change { Category.collection_cache_key }
     end
   end
 end
