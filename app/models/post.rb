@@ -19,9 +19,19 @@ class Post < ActiveRecord::Base
       where(is_featured: false, is_vacancy: false).includes(:category).limit(limit).load
     end
   end
-  scope :related, ->(post, limit=nil) do
-    Rails.cache.fetch [post, :related, limit], expires_in: 1.day do
-      where.not(id: post.id).where(category: post.category).limit(limit).load
+  scope :related, ->(category, post=nil, limit=nil) do
+    Rails.cache.fetch [collection_cache_key, category, post, :related, limit] do
+      if post
+        where.not(id: post.id).where(category: category).limit(limit).load
+      else
+        where(category: category).limit(limit).load
+      end
+    end
+  end
+  scope :matches_all_categories, ->(category) do
+    Rails.cache.fetch [collection_cache_key, category, :matches_all_categories] do
+      condition = category.down_roots.map { |c| "category_id = #{c.id}" }.join(' OR ')
+      where(condition).to_a
     end
   end
 

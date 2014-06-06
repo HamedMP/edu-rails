@@ -11,18 +11,17 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.cached_find_by_slug(params[:id])
-    @related = Post.related(@post, 4)
-    @random_categories = Category.random(@post.category)
+    @related = Post.related(@post.category, @post, 4)
+    @random_categories = Category.random(@post.category, 5)
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def index
-    @category = Category.find_by(slug: params[:category_id])
-    @related = Post.order("RANDOM()").limit(2)
-    @random_categories = Category.order("RANDOM()").limit(5)
+    @category = Category.cached_find_by_slug(params[:category_id])
+    @related = Post.related(@category, nil, 2)
+    @random_categories = Category.random(@category, 5)
 
-    matches_all_categories = @category.down_roots.map { |c| "category_id = #{c.id}" }.join(' OR ')
-    @posts = Post.where(matches_all_categories).page(params[:page])
+    @posts = Kaminari.paginate_array(Post.matches_all_categories(@category)).page(params[:page])
   end
 end

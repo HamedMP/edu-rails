@@ -1,4 +1,6 @@
 class Category < ActiveRecord::Base
+  after_update { Rails.cache.delete [self.class.name, self.slug] }
+
   default_scope { order(:order) }
   scope :root, -> do
     Rails.cache.fetch [collection_cache_key, :root] do
@@ -6,7 +8,7 @@ class Category < ActiveRecord::Base
     end
   end
   scope :random, ->(category, limit=nil) do
-    Rails.cache.fetch [category, :random, limit] do
+    Rails.cache.fetch [category, :random, limit], expires_in: 1.hour do
       order("RANDOM()").where.not(id: category.id).limit(limit)
     end
   end
@@ -48,6 +50,12 @@ class Category < ActiveRecord::Base
 
   def to_param
     slug
+  end
+
+  def self.cached_find_by_slug(slug)
+    Rails.cache.fetch [self.class.name, slug] do
+      find_by(slug: slug)
+    end
   end
 
   def self.collection_cache_key
