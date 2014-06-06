@@ -2,7 +2,8 @@ class Post < ActiveRecord::Base
   before_save :check_vacancy
   after_update { Rails.cache.delete [self.class.name, self.slug] }
 
-  default_scope                     { order(published_at: :desc) }
+  default_scope { order(published_at: :desc) }
+
   scope :non_featured_vacancies, ->(limit=nil) do
     Rails.cache.fetch [collection_cache_key, :non_featured_vacancies, limit] do
       where(is_vacancy: true, is_featured: false).includes(:category).limit(limit).load
@@ -17,6 +18,9 @@ class Post < ActiveRecord::Base
     Rails.cache.fetch [collection_cache_key, :ordinary, limit] do
       where(is_featured: false, is_vacancy: false).includes(:category).limit(limit).load
     end
+  end
+  scope :related, ->(post, limit=nil) do
+    where.not(id: post.id).where(category: post.category).limit(limit)
   end
 
   validates_presence_of :title, :published_at, :body, :category, :slug
