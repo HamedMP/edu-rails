@@ -20,7 +20,9 @@ class Post < ActiveRecord::Base
     end
   end
   scope :related, ->(post, limit=nil) do
-    where.not(id: post.id).where(category: post.category).limit(limit)
+    Rails.cache.fetch [post, :related], expires_in: 1.day do
+      where.not(id: post.id).where(category: post.category).limit(limit).load
+    end
   end
 
   validates_presence_of :title, :published_at, :body, :category, :slug
