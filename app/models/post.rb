@@ -57,7 +57,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.collection_cache_key
-    count, max_updated_at = Post.pluck("COUNT(*)", "MAX(updated_at)").flatten
+    count, max_updated_at = Post.unscoped.pluck('COUNT(*)', 'MAX("posts"."updated_at")').flatten
     "posts/all-#{count}-#{max_updated_at.try(:to_datetime).try(:to_i)}"
   end
 

@@ -11,6 +11,8 @@ describe Post, :type => :model do
   end
 
   describe 'scopes' do
+    before { Rails.cache.clear }
+
     describe 'default' do
       let!(:post1) { create :post, published_at: 2.days.ago }
       let!(:post2) { create :post, published_at: 1.day.ago }

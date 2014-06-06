@@ -9,7 +9,7 @@ class Category < ActiveRecord::Base
   end
   scope :random, ->(category, limit=nil) do
     Rails.cache.fetch [category, :random, limit], expires_in: 1.hour do
-      order("RANDOM()").where.not(id: category.id).limit(limit)
+      unscoped.order("RANDOM()").where.not(id: category.id).limit(limit)
     end
   end
 
@@ -59,7 +59,7 @@ class Category < ActiveRecord::Base
   end
 
   def self.collection_cache_key
-    count, max_updated_at = Category.pluck("COUNT(*)", "MAX(updated_at)").flatten
+    count, max_updated_at = Category.unscoped.pluck('COUNT(*)', 'MAX("categories"."updated_at")').flatten
     "categories/all-#{count}-#{max_updated_at.try(:to_datetime).try(:to_i)}"
   end
 end
