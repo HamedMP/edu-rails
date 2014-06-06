@@ -1,7 +1,7 @@
 class Category < ActiveRecord::Base
   default_scope { order(:order) }
   scope :root, -> do
-    Rails.cache.fetch collection_cache_key, expires_in: 7.days do
+    Rails.cache.fetch collection_cache_key do
       where(parent: nil).includes(:children).load
     end
   end

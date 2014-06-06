@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find_by(slug: params[:id])
+    @post = Post.cached_find_by_slug(params[:id])
     @related = Post.where.not(id: @post.id).where(category: @post.category).limit(4)
     @random_categories = Category.order("RANDOM()").where.not(id: @post.category.id).limit(5)
   end
