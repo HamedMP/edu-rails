@@ -19,6 +19,7 @@ gem 'puma'
 group :production, :staging do
   gem 'rails_12factor'
   gem 'heroku-deflater'
+  gem 'newrelic_rpm'
 end
 
 group :development do
@@ -26,6 +27,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'foreman'
 end
 
 group :development, :test do
