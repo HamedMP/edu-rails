@@ -15,7 +15,7 @@
       <h4 class="entry-title">
         <%= link_to post.title, post %>
       </h4>
-      <p><%= truncate(strip_tags(post.body), length: 150, escape: false) %></p>
+      <p><%= truncate(post.raw_text, length: 150, escape: false) %></p>
       </div><!--entry-content-->
     </article>
   <%- end %>

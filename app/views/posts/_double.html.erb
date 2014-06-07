@@ -10,7 +10,7 @@
         <h5 class="entry-title">
           <%= link_to post.title, post %>
         </h5>
-        <p><%= truncate(strip_tags(post.body), length: 100, escape: false) %></p>
+        <p><%= truncate(post.raw_text, length: 100, escape: false) %></p>
       </div><!--entry-content-->
     </article>
   <% end %>

@@ -21,7 +21,7 @@
           <h2 class="entry-title">
             <%= link_to post.title, post %>
           </h2>
-          <p><%= truncate(strip_tags(post.body), length: 450, escape: false) %></p>
+          <p><%= truncate(post.raw_text, length: 450, escape: false) %></p>
           <%= link_to 'Read more', post, class: 'small-button' %>
         </div><!--end:entry-content-->
       </article><!--end:entry-item-->

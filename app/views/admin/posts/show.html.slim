@@ -9,7 +9,7 @@ p
   = @post.published_at
 p
   strong Body:
-  = truncate(strip_tags(@post.body), length: 300, escape: false)
+  = truncate(@post.raw_text, length: 300, escape: false)
 p
   strong Is featured:
   = @post.is_featured

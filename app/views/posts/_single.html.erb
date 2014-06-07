@@ -8,6 +8,6 @@
     <h3 class="entry-title">
       <%= link_to single.title, single %>
     </h3>
-    <p><%= truncate(strip_tags(single.body), length: 150, escape: false) %></p>
+    <p><%= truncate(single.raw_text, length: 150, escape: false) %></p>
   </div><!--entry-content-->
 </article>
