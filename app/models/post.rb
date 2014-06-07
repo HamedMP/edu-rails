@@ -65,7 +65,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.cached_find_by_slug(slug)
-    Rails.cache.fetch [self.class.name, slug] do
+    Rails.cache.fetch [name, slug] do
       includes(:category).find_by(slug: slug)
     end
   end

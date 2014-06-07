@@ -1,27 +1,29 @@
-<div class="main-content clearfix">
-  <div class="main-col">
-    <div class="breadcrumb clearfix">
-      <%= link_to 'Home', root_path %>
-    <%- @post.category.up_tree.each do |category| %>
-      <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-      <%= link_to category.title, category, class: "#{'current-page' if category == @post.category}" %>
-    <%- end %>
-    </div>
-    <section class="entry-box">
-      <article class="entry-item">
-        <h2 class="entry-title"><%= @post.title %></h2>
-        <span class="entry-meta">in:&nbsp;</span>
-        <%= link_to @post.category.title, @post.category, class: 'entry-category' %>
-        <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <span class="entry-date"><%= @post.published_at.strftime("%d.%m.%Y") %></span>
-        <br>
-        <img src="http://www.placehold.it/750x300" alt="" />
-        <div>
-          <%= @post.body.html_safe %>
-        </div>
-      </article><!--end:entry-item-->
-    </section><!--end:entry-box-->
-  </div><!--end:main-col-->
-  <%= render 'shared/sidebar' %>
-  <div class="clear"></div>
-</div><!--main-content-->
+<% cache [:show, @post] do %>
+  <div class="main-content clearfix">
+    <div class="main-col">
+      <div class="breadcrumb clearfix">
+        <%= link_to 'Home', root_path %>
+      <%- @post.category.up_tree.each do |category| %>
+        <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+        <%= link_to category.title, category, class: "#{'current-page' if category == @post.category}" %>
+      <%- end %>
+      </div>
+      <section class="entry-box">
+        <article class="entry-item">
+          <h2 class="entry-title"><%= @post.title %></h2>
+          <span class="entry-meta">in:&nbsp;</span>
+          <%= link_to @post.category.title, @post.category, class: 'entry-category' %>
+          <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <span class="entry-date"><%= @post.published_at.strftime("%d.%m.%Y") %></span>
+          <br>
+          <img src="http://www.placehold.it/750x300" alt="" />
+          <div>
+            <%= @post.body.html_safe %>
+          </div>
+        </article><!--end:entry-item-->
+      </section><!--end:entry-box-->
+    </div><!--end:main-col-->
+    <%= render 'shared/sidebar' %>
+    <div class="clear"></div>
+  </div><!--main-content-->
+<% end %>

@@ -57,7 +57,9 @@
             <li class="home-menu-item">
               <%= link_to 'Home', root_path %>
             </li>
-            <%= render Category.root %>
+            <% cache [:navbar, Category.collection_cache_key] do %>
+              <%= render Category.root %>
+            <% end %>
           </ul>
         </nav>
         <div class="search-box clearfix">

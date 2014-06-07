@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   # GET /posts/home
   # GET /posts/home.json
   def home
-    if stale? Post.collection_cache_key, last_modified: Post.maximum(:updated_at).try(:utc)
+    if !Rails.env.development? ||
+       stale?(Post.collection_cache_key, last_modified: Post.maximum(:updated_at).try(:utc))
       @posts = Post.ordinary(9)
       @featured = Post.featured(4)
       @vacancies = Post.non_featured_vacancies(9)
