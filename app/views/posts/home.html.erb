@@ -1,57 +1,59 @@
-<div class="main-content clearfix">
-<div class="column-a">
-<div class="stick-it">
-  <%= render partial: 'featured', locals: {featured: @featured[0..1]} %>
-  <section class="widget_grey">
-    <h1 class="widget-title">More featured</h1>
-  <%- @featured[2..-1].each do |post| %>
-    <article class="entry-item border-bottom clearfix">
-      <%= link_to image_tag('http://www.placehold.it/150x105', class: 'responsive-img hover-effect'), post, class: 'image-frame' %>
-      <div class="entry-content">
-        <span class="entry-meta">in:&nbsp;</span>
-        <%= link_to post.category.title, post.category, class: 'entry-category' %>
-      <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-      <span class="entry-date"><%= post.published_at.strftime('%d.%m.%Y') %></span>
-      <h4 class="entry-title">
-        <%= link_to post.title, post %>
-      </h4>
-      <p><%= truncate(post.raw_text, length: 150, escape: false) %></p>
-      </div><!--entry-content-->
-    </article>
-  <%- end %>
-  </section>
-  <section class="widget">
-    <h1 class="widget-title">Advertisement</h1>
-    <figure class="clearfix">
-      <a href="#" class="image-frame"><img class="responsive-img hover-effect" src="http://www.placehold.it/125x125" alt=""></a>
-      <a href="#" class="image-frame"><img class="responsive-img hover-effect" src="http://www.placehold.it/125x125" alt=""></a>
-      <a href="#" class="image-frame"><img class="responsive-img hover-effect" src="http://www.placehold.it/125x125" alt=""></a>
-    </figure>
-  </section>
-    </div><!--stick-it-->
-  </div><!--column-a-->
-  <div class="column-b">
-    <section class="latest-article">
-      <div class="column-bleft">
-  <div class="bleft-stick">
-    <h1 class="widget-title">Latest News</h1>
-    <% @posts.each_slice(3) do |triple| %>
-      <%= render partial: 'double', locals: {double: triple[0..1]} %>
-      <%= render partial: 'single', locals: {single: triple[2]} %>
-    <% end %>
-  </div><!--bleft-stick-->
-  </div><!--column-bleft-->
-      <div class="column-bright">
-  <div class="bright-stick">
-    <h1 class="widget-title">Vacancies</h1>
-    <% @vacancies.each_slice(3) do |triple| %>
-      <%= render partial: 'single', locals: {single: triple[0]} %>
-      <%= render partial: 'double', locals: {double: triple[1..2]} %>
-    <% end %>
-  </div><!--bright-stick-->
-  </div><!--column-bright-->
-      <div class="clear"></div>
+<% cache [:home, Post.collection_cache_key] do %>
+  <div class="main-content clearfix">
+  <div class="column-a">
+  <div class="stick-it">
+    <%= render partial: 'featured', locals: {featured: @featured[0..1]} %>
+    <section class="widget_grey">
+      <h1 class="widget-title">More featured</h1>
+    <%- @featured[2..-1].each do |post| %>
+      <article class="entry-item border-bottom clearfix">
+        <%= link_to image_tag('http://www.placehold.it/150x105', class: 'responsive-img hover-effect'), post, class: 'image-frame' %>
+        <div class="entry-content">
+          <span class="entry-meta">in:&nbsp;</span>
+          <%= link_to post.category.title, post.category, class: 'entry-category' %>
+        <span class="entry-meta">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <span class="entry-date"><%= post.published_at.strftime('%d.%m.%Y') %></span>
+        <h4 class="entry-title">
+          <%= link_to post.title, post %>
+        </h4>
+        <p><%= truncate(post.raw_text, length: 150, escape: false) %></p>
+        </div><!--entry-content-->
+      </article>
+    <%- end %>
     </section>
-  </div><!--column-b-->
-  <div class="clear"></div>
-</div><!--main-content-->
+    <section class="widget">
+      <h1 class="widget-title">Advertisement</h1>
+      <figure class="clearfix">
+        <a href="#" class="image-frame"><img class="responsive-img hover-effect" src="http://www.placehold.it/125x125" alt=""></a>
+        <a href="#" class="image-frame"><img class="responsive-img hover-effect" src="http://www.placehold.it/125x125" alt=""></a>
+        <a href="#" class="image-frame"><img class="responsive-img hover-effect" src="http://www.placehold.it/125x125" alt=""></a>
+      </figure>
+    </section>
+      </div><!--stick-it-->
+    </div><!--column-a-->
+    <div class="column-b">
+      <section class="latest-article">
+        <div class="column-bleft">
+    <div class="bleft-stick">
+      <h1 class="widget-title">Latest News</h1>
+      <% @posts.each_slice(3) do |triple| %>
+        <%= render partial: 'double', locals: {double: triple[0..1]} %>
+        <%= render partial: 'single', locals: {single: triple[2]} %>
+      <% end %>
+    </div><!--bleft-stick-->
+    </div><!--column-bleft-->
+        <div class="column-bright">
+    <div class="bright-stick">
+      <h1 class="widget-title">Vacancies</h1>
+      <% @vacancies.each_slice(3) do |triple| %>
+        <%= render partial: 'single', locals: {single: triple[0]} %>
+        <%= render partial: 'double', locals: {double: triple[1..2]} %>
+      <% end %>
+    </div><!--bright-stick-->
+    </div><!--column-bright-->
+        <div class="clear"></div>
+      </section>
+    </div><!--column-b-->
+    <div class="clear"></div>
+  </div><!--main-content-->
+<% end %>
