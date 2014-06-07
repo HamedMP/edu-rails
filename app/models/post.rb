@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
+  include ActionView::Helpers::SanitizeHelper
+
   before_save :check_vacancy
   after_update { Rails.cache.delete [self.class.name, self.slug] }
+  before_save { self.raw_text = strip_tags(self.body) + ' ' + self.title }
 
   default_scope { order(published_at: :desc) }
 

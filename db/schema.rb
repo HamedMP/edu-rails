@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140530220815) do
+ActiveRecord::Schema.define(version: 20140607030906) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20140530220815) do
     t.datetime "updated_at"
   end
 
-  add_index "categories", ["category_id"], name: "index_categories_on_category_id"
-  add_index "categories", ["slug"], name: "index_categories_on_slug"
+  add_index "categories", ["category_id"], name: "index_categories_on_category_id", using: :btree
+  add_index "categories", ["slug"], name: "index_categories_on_slug", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -36,10 +39,11 @@ ActiveRecord::Schema.define(version: 20140530220815) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.text     "raw_text"
   end
 
-  add_index "posts", ["category_id"], name: "index_posts_on_category_id"
-  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
+  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "provider"
@@ -51,8 +55,8 @@ ActiveRecord::Schema.define(version: 20140530220815) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["oauth_token"], name: "index_users_on_oauth_token", unique: true
-  add_index "users", ["uid"], name: "index_users_on_uid", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["oauth_token"], name: "index_users_on_oauth_token", unique: true, using: :btree
+  add_index "users", ["uid"], name: "index_users_on_uid", unique: true, using: :btree
 
 end
