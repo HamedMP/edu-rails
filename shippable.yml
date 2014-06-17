@@ -15,4 +15,6 @@ notifications:
 script:
   - rspec --format RspecJunitFormatter --out shippable/testresults/results.xml
 after_success:
+  - gem install heroku
   - git push git@heroku.com:edu-rails-staging.git HEAD:master
+  - bundle exec heroku run rake db:migrate
