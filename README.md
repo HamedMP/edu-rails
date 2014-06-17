@@ -1,7 +1,7 @@
 EDU ACTIVE
 ==========
 
-[![Build Status](https://drone.io/github.com/aliismayilov/edu-rails/status.png)](https://drone.io/github.com/aliismayilov/edu-rails/latest)
+[![Build Status](https://api.shippable.com/projects/53841d55106fe41601beea68/badge/develop)](https://www.shippable.com/projects/53841d55106fe41601beea68)
 [![Code Climate](https://codeclimate.com/github/aliismayilov/edu-rails.png)](https://codeclimate.com/github/aliismayilov/edu-rails)
 
 This README would normally document whatever steps are necessary to get the
@@ -41,4 +41,4 @@ Nothing special.
 
 ## Deployment instructions
 
-Deployed to Heroku through drone.io.
+Deployed to Heroku through shippable.com.
