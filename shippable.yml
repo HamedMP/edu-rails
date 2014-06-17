@@ -17,4 +17,4 @@ script:
 after_success:
   - gem install heroku
   - git push git@heroku.com:edu-rails-staging.git HEAD:master
-  - bundle exec heroku run rake db:migrate
+  - heroku run rake db:migrate
