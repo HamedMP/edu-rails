@@ -3,3 +3,11 @@ rvm:
  - 2.1.2
 before_script:
   - psql -c 'create database edu_rails_test;' -U postgres
+  - mkdir -p shippable/testresults
+env:
+  - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
+notifications:
+  email:
+    - ali@ismailov.info
+script:
+  - rspec  -o shippable/testresults/results.csv
