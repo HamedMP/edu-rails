@@ -10,4 +10,4 @@ notifications:
   email:
     - ali@ismailov.info
 script:
-  - rspec  -o shippable/testresults/results.csv
+  - rspec --format RspecJunitFormatter --out shippable/testresults/results.xml

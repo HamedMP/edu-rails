@@ -43,4 +43,5 @@ group :test do
   gem 'ci_reporter'
   gem 'simplecov'
   gem 'simplecov-csv'
+  gem 'rspec_junit_formatter'
 end
