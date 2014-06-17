@@ -16,4 +16,3 @@ script:
   - rspec --format RspecJunitFormatter --out shippable/testresults/results.xml
 after_success:
   - git push git@heroku.com:edu-rails-staging.git HEAD:master
-  - heroku run rake db:migrate
