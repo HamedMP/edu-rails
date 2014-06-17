@@ -14,5 +14,5 @@ notifications:
     on_failure: always
 script:
   - rspec --format RspecJunitFormatter --out shippable/testresults/results.xml
-after_success :
-  - git push git@heroku.com:edu-rails-staging.git develop:master
+after_success:
+  - git push -u git@heroku.com:edu-rails-staging.git develop:master
