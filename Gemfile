@@ -31,9 +31,16 @@ group :development do
 end
 
 group :development, :test do
+  gem 'rspec'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0.0.beta'
-  gem 'rspec-its'
   gem 'pry-rails'
   gem 'dotenv-rails'
+end
+
+group :test do
+  gem 'rspec-its'
+  gem 'ci_reporter'
+  gem 'simplecov'
+  gem 'simplecov-csv'
 end
