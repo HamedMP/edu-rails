@@ -11,3 +11,5 @@ notifications:
     - ali@ismailov.info
 script:
   - rspec --format RspecJunitFormatter --out shippable/testresults/results.xml
+after_success :
+  - git push git@heroku.com:edu-rails-staging.git develop:master
