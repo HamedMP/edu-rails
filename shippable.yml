@@ -15,4 +15,4 @@ notifications:
 script:
   - rspec --format RspecJunitFormatter --out shippable/testresults/results.xml
 after_success:
-  - git push git@heroku.com:edu-rails-staging.git develop:master
+  - git push git@heroku.com:edu-rails-staging.git HEAD:master
