@@ -4,6 +4,7 @@ rvm:
 before_script:
   - psql -c 'create database edu_rails_test;' -U postgres
   - mkdir -p shippable/testresults
+  - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 env:
   - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
 notifications:
@@ -16,3 +17,4 @@ script:
   - rspec --format RspecJunitFormatter --out shippable/testresults/results.xml
 after_success:
   - git push git@heroku.com:edu-rails-staging.git HEAD:master
+  - heroku run rake db:migrate
