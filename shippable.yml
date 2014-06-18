@@ -15,7 +15,4 @@ notifications:
 script:
   - rspec --format RspecJunitFormatter --out shippable/testresults/results.xml
 after_success:
-  - mkdir -p ~/bin
-  - 'L=~/bin/hk && curl -sL -A "`uname -sp`" https://hk.heroku.com/hk.gz | zcat >$L && chmod +x $L'
   - git push git@heroku.com:edu-rails-staging.git HEAD:master
-  - ~/bin/hk run rake db:migrate --app edu-rails-staging
