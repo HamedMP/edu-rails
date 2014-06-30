@@ -1,14 +1,17 @@
 language: ruby
 rvm:
- - 2.1.2
+  - 2.1.2
+env:
+  global:
+    - CI_REPORTS=shippable/testresults
+    - COVERAGE_REPORTS=shippable/codecoverage
+    - secure: InqBJ5gd5eE7IAFlcw7ku4tiDEYpzAzB0Wdv8eaNp9Xgw+KT299ZLD5PzDtcS6caViCraR9zlbfmLDNfH65SXC6aD9T1w4SHDbbTqzfl4URzso1eRoIARFsgTxUtp3Tuj1/jHoOZG5L23FnhuxS/eKM8UJXpBxIUMyIj+cohXU4PtUV7zb8XaXArSPvn8ShfpHGtyeD3mcjGfpjIiT3NoXyS5cIeiKznUaiCMdI3U6nTrQcauCckRTcrjEkyYQl/W0V3yEGgM4ho0JWtM9NSLC2BswFWPF8v2Ct6vLc0YTWdP1L9nZM+jxNJppGryoc3u+7FxQSX4Dg067kqcaY2MA==
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 before_script:
   - psql -c 'create database edu_rails_test;' -U postgres
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
-env:
-  - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
 notifications:
   email:
     recipients:
@@ -18,5 +21,6 @@ notifications:
 script:
   - rspec --format RspecJunitFormatter --out shippable/testresults/results.xml
 after_success:
+  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
   - git push git@heroku.com:edu-rails-staging.git HEAD:master
   - heroku run rake db:migrate --app edu-rails-staging
