@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
+gem 'yajl-ruby'
 gem 'slim-rails'
 gem 'pg'
 gem 'kaminari'
@@ -33,7 +34,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'pry-rails'
@@ -43,6 +43,7 @@ end
 group :test do
   gem 'shoulda-matchers', require: false
   gem 'rspec-its'
+  gem 'rspec-collection_matchers'
   gem 'ci_reporter'
   gem 'simplecov'
   gem 'simplecov-csv'

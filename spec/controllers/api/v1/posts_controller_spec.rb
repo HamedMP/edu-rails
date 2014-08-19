@@ -24,9 +24,13 @@ describe API::V1::PostsController, :type => :controller do
   describe "GET 'index'" do
     let(:action) { get :index }
 
-    before { action }
+    before do
+      create_list :post, 2
+      action
+    end
 
     it { is_expected.to respond_with :success }
+    it { expect(JSON.parse(response.body)).to have(2).posts }
   end
 
   describe "GET 'show'" do
@@ -37,6 +41,16 @@ describe API::V1::PostsController, :type => :controller do
     before { action }
 
     it { is_expected.to respond_with :success }
+    it { expect(response.body).to eql({
+        id: post.id,
+        title: post.title,
+        body: post.body,
+        published_at: post.published_at,
+        category: {
+          id: post.category.id,
+          title: post.category.title
+        }
+      }.to_json) }
   end
 
 end
