@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     resources :posts, :categories
     root to: 'posts#index'
   end
+  namespace 'api', defaults: { format: :json } do
+    namespace :v1 do
+      resources :posts, only: [:index, :show]
+    end
+  end
 
   get '/auth/failure'            => 'admin/sessions#failure',
     as: :auth_failure
@@ -14,10 +19,5 @@ Rails.application.routes.draw do
   delete '/logout'               => 'admin/sessions#destroy',
     as: :logout
 
-  resources :categories, only: [], path: '' do
-    resources :posts, only: :index, path: ''
-    get '/:year/:month/:day/:id' => 'posts#show', as: :post
-  end
-
-  root 'posts#home'
+  root 'api/v1/posts#index'
 end

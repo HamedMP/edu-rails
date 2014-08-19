@@ -45,11 +45,6 @@ class Post < ActiveRecord::Base
 
   before_validation :assign_slug, on: :create
 
-  def to_param
-    return unless self.id
-    "#{self.created_at.strftime('%Y/%b/%d').downcase}/#{self.slug}"
-  end
-
   def to_path_params
     {
       year: self.created_at.year,

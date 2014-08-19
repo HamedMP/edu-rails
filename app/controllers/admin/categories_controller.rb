@@ -64,7 +64,7 @@ class Admin::CategoriesController < Admin::AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find_by(slug: params[:id])
+      @category = Category.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

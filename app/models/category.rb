@@ -48,10 +48,6 @@ class Category < ActiveRecord::Base
     end
   end
 
-  def to_param
-    slug
-  end
-
   def self.cached_find_by_slug(slug)
     Rails.cache.fetch [name, slug] do
       find_by(slug: slug)
