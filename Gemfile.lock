@@ -260,7 +260,7 @@ DEPENDENCIES
   rails_12factor
   rspec
   rspec-its
-  rspec-rails (~> 3.0.0.beta)
+  rspec-rails (~> 3.0.0)
   rspec_junit_formatter
   sass-rails (~> 4.0.3)
   simplecov

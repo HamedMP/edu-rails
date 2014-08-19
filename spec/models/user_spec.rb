@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe User, :type => :model do
   describe '.find_or_create_with_omniauth' do

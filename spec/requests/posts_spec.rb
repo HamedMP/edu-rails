@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe "Posts", :type => :request do
   describe "GET /" do
