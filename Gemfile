@@ -41,6 +41,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'shoulda-matchers', require: false
   gem 'rspec-its'
   gem 'ci_reporter'
   gem 'simplecov'
